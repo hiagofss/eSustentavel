@@ -1,0 +1,39 @@
+BANCO DE DADOS: pisustentavel
+
+
+ALTER TABLE `controle_residuos`
+ADD FOREIGN KEY (`tp_residuo`) REFERENCES `tp_residuos`(`id_residuo`);
+
+
+INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES (NULL, 'Organico'), (NULL, 'Hospitalar');
+
+
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp_residuo` AND `tp_residuos`.`desc_residuo` = 'Organico';
+
+
+SELECT SUM(`peso_residuo`)
+FROM `controle_residuos`
+WHERE `tp_residuo` = 1;
+
+SELECT SUM(`peso_residuo`)
+FROM `controle_residuos`
+WHERE `tp_residuo` = 1 AND `data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06';
+
+
+
+calculo de consumo minimo:
+SELECT * FROM `consumo_agua` WHERE `vl_agua` = (SELECT MIN(`vl_agua`) FROM `consumo_agua`);
+
+calculo de consumo maximo:
+SELECT * FROM `consumo_agua` WHERE `vl_agua` = (SELECT MAX(`vl_agua`) FROM `consumo_agua`);
+
+calculo de consumo Médio:
+SELECT AVG(`vl_agua`) AS 'Média de Consumo' FROM `consumo_agua`;
+
+SELECT AVG(`vl_agua`) AS 'Média de Consumo' FROM `consumo_agua`
+WHERE `data_leitura` BETWEEN '2018-07-01' AND '2018-08-01';
+
+Mostrar variável da quantidade de meses para fazer a média:
+SET @numero = (SELECT COUNT(`data_leitura`) FROM `consumo_agua` WHERE `data_leitura` BETWEEN '2018-07-01' AND '2018-08-01');
+SELECT @numero;
