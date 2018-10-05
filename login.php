@@ -1,5 +1,7 @@
 <?php require 'templates/header.php'; ?>
 	<link rel="stylesheet" href="css/signin.css">
+
+    <center><img src="LOGO/eSustentavel.png" alt="Logo E-Sustentavel" width="250" height="250" /></center>
 	<div class="form-signin">
 		<form action="php/Funcoes.php" method="POST">
 			<h2 class="text-center">Área de Acesso</h2>

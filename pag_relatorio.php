@@ -12,9 +12,10 @@ if(!(isset($_SESSION['id_usu']))){
         <h2>Catálogo</h2>
         <?php require 'templates/msgs.php'; ?>
 
+
         <?php
-        $query = "SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo` FROM `controle_residuos`
-INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp_residuo`;";
+
+
         ?>
 
         <table class="table">
@@ -30,13 +31,23 @@ INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp
             </thead>
 
             <tbody>
-            <tr>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-            </tr>
+
+
+            <?php
+            require 'php/Residuo.php';
+
+            @$residuos = listar();
+
+            foreach($residuos as $values){
+                ?>
+                <tr>
+                    <td><?= $values['nm_residuo']?></td>
+                    <td><?= $values['desc_residuo']?></td>
+                    <td><?= $values['peso_residuo']?></td>
+                    <td><?= $values['data_pesagem']?></td>
+                    <td><?= $values['destino_residuo']?></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
     </div>
