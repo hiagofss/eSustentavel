@@ -1,3 +1,12 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: hiago
+ * Date: 06/10/2018
+ * Time: 17:31
+ */
+?>
+
 <?php require 'templates/header.php'; ?>
 
 <?php
@@ -22,11 +31,8 @@ if(!(isset($_SESSION['id_usu']))){
 
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Nome do Residuo</th>
-                <th>Descrição Residuo</th>
-                <th>Peso</th>
-                <th>Data da Pesagem</th>
-                <th>Destino</th>
             </tr>
             </thead>
 
@@ -34,18 +40,15 @@ if(!(isset($_SESSION['id_usu']))){
 
 
             <?php
-            require 'php/Controle.php';
+            require 'php/Residuo.php';
 
-            @$residuos = listar();
+            @$residuos = listarResiduos();
 
             foreach($residuos as $values){
                 ?>
                 <tr>
-                    <td><?= $values['nm_residuo']?></td>
+                    <td><?= $values['id_residuo']?></td>
                     <td><?= $values['desc_residuo']?></td>
-                    <td><?= $values['peso_residuo']?></td>
-                    <td><?= $values['data_pesagem']?></td>
-                    <td><?= $values['destino_residuo']?></td>
                 </tr>
             <?php } ?>
             </tbody>

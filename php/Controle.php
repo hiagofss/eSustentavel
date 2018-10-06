@@ -6,7 +6,7 @@
  * Time: 16:04
  */
 
-function cadastrarResiduo(){
+function cadastrarTipo(){
     $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
 
     if(empty($nome) || empty($preco) || empty($qtd)){
@@ -27,10 +27,11 @@ function cadastrarResiduo(){
     }
 }
 
-function listarResiduos(){
+function listar(){
     require 'Connection.php';
     $con = startConnection();
-    $stmt = $con->prepare("SELECT * FROM esustentavel.tp_residuos;");
+    $stmt = $con->prepare("SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp_residuo`");
     $stmt->execute();
 
     while($row = $stmt->fetch()){

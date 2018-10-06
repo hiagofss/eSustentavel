@@ -2,16 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: hiago
- * Date: 22/09/2018
- * Time: 16:04
+ * Date: 06/10/2018
+ * Time: 16:45
  */
 
-function cadastrarResiduo(){
+function cadastrarEmpresa(){
     $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
 
     if(empty($nome) || empty($preco) || empty($qtd)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_empresa.php");
     }else{
 
         $con = startConnection();
@@ -23,21 +23,21 @@ function cadastrarResiduo(){
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
         }
 
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_empresa.php");
     }
 }
 
-function listarResiduos(){
+function listarEmpresa(){
     require 'Connection.php';
     $con = startConnection();
-    $stmt = $con->prepare("SELECT * FROM esustentavel.tp_residuos;");
+    $stmt = $con->prepare("SELECT * FROM esustentavel.cad_empresas;");
     $stmt->execute();
 
     while($row = $stmt->fetch()){
-        $residuos[] = $row;
+        $empresas[] = $row;
     }
 
-    return $residuos;
+    return $empresas;
 }
 
 //function excluir(){
