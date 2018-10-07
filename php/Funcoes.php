@@ -4,6 +4,8 @@
 	require 'Connection.php';
 	require 'Residuo.php';
 	require 'Empresa.php';
+	require 'Segmento.php';
+	require 'ControleResiduo.php';
 
 	if(isset($_POST['acao'])){
 		if($_POST['acao'] == "login"){
@@ -19,6 +21,11 @@
         if ($_POST['acao'] == "cadastrarSegmento"){
             //Segmentro
             cadastrarSegmento();
+        }
+
+        if ($_POST['acao'] == "cadastrarResiduo"){
+            //Residuo
+            cadastrarResiduo();
         }
 
 	}

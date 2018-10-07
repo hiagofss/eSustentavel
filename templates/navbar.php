@@ -6,7 +6,7 @@
 			<a class="navbar-brand" href="index.php">eSustentavel</a>
 		</div>
 		<ul class="nav navbar-nav">
-            <li><a href="pag_relatorio.php">Relatório</a></li>
+            <li><a href="pag_controleResiduos.php">Relatório</a></li>
 			<li><a href="pag_insercao.php">Inserir Dados</a></li>
 		</ul>
 
@@ -18,7 +18,6 @@
                     <li><a href="pag_empresa.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Gerenciar empresa</a></li>
                     <li><a href="pag_segmento.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Gerenciar segmentos</a></li>
                     <li><a href="pag_residuos.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Gerenciar Tipo Residuo</a></li>
-                    <li><a href="php/Funcoes.php?acao=sair"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sair</a></li>
                     <li><a href="php/Funcoes.php?acao=sair"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sair</a></li>
 				</ul>
 			</li>

@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: hiago
- * Date: 06/10/2018
- * Time: 17:31
- */
-?>
-
 <?php require 'templates/header.php'; ?>
 
 <?php
@@ -18,7 +9,7 @@ if(!(isset($_SESSION['id_usu']))){
 
 <?php require 'templates/navbar-index.php'; ?>
     <div class="container-fluid">
-        <h2>Catálogo</h2>
+        <h2>Controle de Residuos</h2>
         <?php require 'templates/msgs.php'; ?>
 
 
@@ -31,8 +22,11 @@ if(!(isset($_SESSION['id_usu']))){
 
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome do Residuo</th>
+                <th>Descrição Residuo</th>
+                <th>Peso</th>
+                <th>Data da Pesagem</th>
+                <th>Destino</th>
             </tr>
             </thead>
 
@@ -40,26 +34,30 @@ if(!(isset($_SESSION['id_usu']))){
 
 
             <?php
-            require 'php/Residuo.php';
+            require 'php/ControleResiduo.php';
 
-            @$residuos = listarResiduos();
+            @$residuos = listar();
 
             foreach($residuos as $values){
                 ?>
                 <tr>
-                    <td><?= $values['id_residuo']?></td>
+                    <td><?= $values['nm_residuo']?></td>
                     <td><?= $values['desc_residuo']?></td>
+                    <td><?= $values['peso_residuo']?></td>
+                    <td><?= $values['data_pesagem']?></td>
+                    <td><?= $values['destino_residuo']?></td>
                 </tr>
             <?php } ?>
             </tbody>
 
             <tfoot>
             <tr align="center">
-                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Novo Residuo</a></td>
+                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Residuos</a></td>
             </tr>
             </tfoot>
         </table>
     </div>
+
 
 <!-- Modal de cadastro -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -83,13 +81,33 @@ if(!(isset($_SESSION['id_usu']))){
                 <form action="php/Funcoes.php" method="POST">
 
                     <div class="form-group">
-                        <label for="nome">Nome da empresa</label>
-                        <input type="text" class="form-control" name="inpResiduo" id="nm_residuo" >
+                        <label for="nome">Nome do Residuo</label>
+                        <input type="text" class="form-control" name="inpNome" id="nome" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preco">Tipo de residuo</label>
+                        <input type="text" class="form-control" name="inpTp" id="tp_residuo" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qtd">Segmento de residuo</label>
+                        <input type="text" class="form-control" name="inpSeg" id="seg_residuo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preco">Telefone</label>
+                        <input type="phone" class="form-control" name="inpTel" id="telefone" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qtd">E-Mail</label>
+                        <input type="email" class="form-control" name="inpEmail" id="email">
                     </div>
 
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="acao" value="cadastrarResiduo">
+                <input type="hidden" name="acao" value="cadastrarRes">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>

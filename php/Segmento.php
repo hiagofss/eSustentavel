@@ -7,20 +7,20 @@
  */
 
 function cadastrarSegmento(){
-    $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
+    $nm_segmento = filter_input(INPUT_POST, 'inpSegmento');
 
-    if(empty($nome) || empty($preco) || empty($qtd)){
+    if(empty($nm_segmento)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
         header("Location: ../pag_segmento.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES(?,?)");
-        $stmt->bindValue(1, $nm_residuo);
+        $stmt = $con->prepare("INSERT INTO `esustentavel`.`segm_residuos` (`nm_segm`) VALUES (?);");
+        $stmt->bindValue(1, $nm_segmento);
         if($stmt->execute()){
-            $_SESSION['msgSuce'] = "Residuo cadastrado com sucesso";
+            $_SESSION['msgSuce'] = "Segmento cadastrado com sucesso";
         }else{
-            $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
+            $_SESSION['msgErroCad'] = "Erro ao cadastrar o Segmento";
         }
 
         header("Location: ../pag_segmento.php");

@@ -7,15 +7,15 @@
  */
 
 function cadastrarResiduo(){
-    $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
+    $nm_residuo = filter_input(INPUT_POST, 'inpResiduo');
 
-    if(empty($nome) || empty($preco) || empty($qtd)){
+    if(empty($nm_residuo)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_controleResiduos.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES(?,?)");
+        $stmt = $con->prepare("INSERT INTO `tp_residuos` (`desc_residuo`) VALUES (?)");
         $stmt->bindValue(1, $nm_residuo);
         if($stmt->execute()){
             $_SESSION['msgSuce'] = "Residuo cadastrado com sucesso";
@@ -23,7 +23,7 @@ function cadastrarResiduo(){
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
         }
 
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_controleResiduos.php");
     }
 }
 

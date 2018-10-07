@@ -7,20 +7,29 @@
  */
 
 function cadastrarEmpresa(){
-    $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
+    $nm_empresa = filter_input(INPUT_POST, 'inpNome');
+    $tp_residuo = filter_input(INPUT_POST, 'inpTp');
+    $inpSeg = filter_input(INPUT_POST, 'inpSeg');
+    $inpTel = filter_input(INPUT_POST, 'inpTel');
+    $inpEmail = filter_input(INPUT_POST, 'inpEmail');
 
-    if(empty($nome) || empty($preco) || empty($qtd)){
+    if(empty($nm_empresa) || empty($tp_residuo) || empty($inpSeg) || empty($inpTel) || empty($inpEmail)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
         header("Location: ../pag_empresa.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES(?,?)");
-        $stmt->bindValue(1, $nm_residuo);
+        $stmt = $con->prepare("INSERT INTO `esustentavel`.`cad_empresas` (`nm_empresa`, `tp_residuo_empresa`, `segm_residuo`, `tel_empresa`, `email_empresa`) VALUES (?, ?, ?, ?, ?);
+");
+        $stmt->bindValue(1, $nm_empresa);
+        $stmt->bindValue(2, $tp_residuo);
+        $stmt->bindValue(3, $inpSeg);
+        $stmt->bindValue(4, $inpTel);
+        $stmt->bindValue(5, $inpEmail);
         if($stmt->execute()){
-            $_SESSION['msgSuce'] = "Residuo cadastrado com sucesso";
+            $_SESSION['msgSuce'] = "Empresaa cadastrado com sucesso";
         }else{
-            $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
+            $_SESSION['msgErroCad'] = "Erro ao cadastrar o Empresa";
         }
 
         header("Location: ../pag_empresa.php");
