@@ -16,11 +16,11 @@ if(!(isset($_SESSION['id_usu']))){
 
             <thead>
             <tr>
-                <th>Nome do Residuo</th>
-                <th>Descrição Residuo</th>
-                <th>Peso</th>
-                <th>Data da Pesagem</th>
-                <th>Destino</th>
+                <th>ID</th>
+                <th>Nome da empresa que fornece</th>
+                <th>Data de leitura</th>
+                <th>m³ de agua</th>
+                <th>Valor</th>
             </tr>
             </thead>
 
@@ -28,25 +28,25 @@ if(!(isset($_SESSION['id_usu']))){
 
 
             <?php
-            require 'php/ControleResiduo.php';
+            require 'php/ControleAgua.php';
 
-            @$residuos = listar();
+            @$arrayAgua = listarAgua();
 
-            foreach($residuos as $values){
+            foreach($arrayAgua as $values){
                 ?>
                 <tr>
-                    <td><?= $values['nm_residuo']?></td>
-                    <td><?= $values['desc_residuo']?></td>
-                    <td><?= $values['peso_residuo']?></td>
-                    <td><?= $values['data_pesagem']?></td>
-                    <td><?= $values['destino_residuo']?></td>
+                    <td><?= $values['id_agua']?></td>
+                    <td><?= $values['nm_empresa_agua']?></td>
+                    <td><?= $values['data_leitura']?></td>
+                    <td><?= $values['m3_agua']?></td>
+                    <td><?= $values['vl_agua']?></td>
                 </tr>
             <?php } ?>
             </tbody>
 
             <tfoot>
             <tr align="center">
-                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Residuos</a></td>
+                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar consumo</a></td>
             </tr>
             </tfoot>
         </table>
@@ -74,51 +74,28 @@ if(!(isset($_SESSION['id_usu']))){
                 <form action="php/Funcoes.php" method="POST">
 
                     <div class="form-group">
-                        <label for="nome">Nome do Residuo</label>
+                        <label for="nome">Nome da empresa</label>
                         <input type="text" class="form-control" name="inpNome" id="nome" >
                     </div>
 
                     <div class="form-group">
-                        <label for="tipo">Tipo do residuo</label>
-                        <input type="text" class="form-control" name="tipo" id="tipo" >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="perigo">Residuo perigoso</label>
-                        <select class="form-control" name="perigo" id="perigo">
-                            <option></option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="peso">Peso</label>
-                        <input type="number" class="form-control" name="peso" id="peso">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="data">	Data da Pesagem</label>
+                        <label for="data">Data de leitura</label>
                         <input type="text" class="form-control" name="data" id="data" >
                     </div>
 
                     <div class="form-group">
-                        <label for="destino">Destino</label>
-                        <input type="text" class="form-control" name="destino" id="destino">
+                        <label for="metragem">M³ de Agua</label>
+                        <input type="text" class="form-control" name="metragem" id="metragem" >
                     </div>
 
                     <div class="form-group">
-                        <label for="reciclavel">Reciclavel</label>
-                        <select class="form-control" name="reciclavel" id="reciclavel">
-                            <option></option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
+                        <label for="valor">Valor</label>
+                        <input type="number" class="form-control" name="valor" id="valor">
                     </div>
 
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="acao" value="cadastrarRes">
+                <input type="hidden" name="acao" value="cadastrarAgua">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>

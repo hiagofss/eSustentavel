@@ -6,6 +6,7 @@
 	require 'Empresa.php';
 	require 'Segmento.php';
 	require 'ControleResiduo.php';
+	require 'ControleAgua.php';
 
 	if(isset($_POST['acao'])){
 		if($_POST['acao'] == "login"){
@@ -26,6 +27,16 @@
         if ($_POST['acao'] == "cadastrarResiduo"){
             //Residuo
             cadastrarResiduo();
+        }
+
+        if ($_POST['acao'] == "cadastrarRes"){
+            //Controle de Residuo
+            cadastrarRes();
+        }
+
+        if ($_POST['acao'] == "cadastrarAgua"){
+            //Controle de Residuo
+            cadastrarAgua();
         }
 
 	}

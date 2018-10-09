@@ -6,8 +6,8 @@
 			<a class="navbar-brand" href="index.php">eSustentavel</a>
 		</div>
 		<ul class="nav navbar-nav">
-            <li><a href="pag_controleResiduos.php">Relatório</a></li>
-			<li><a href="pag_insercao.php">Inserir Dados</a></li>
+            <li><a href="pag_controleResiduos.php">Controle de Residuos</a></li>
+            <li><a href="pag_controleAgua.php">Controle de Agua</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">

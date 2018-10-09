@@ -6,24 +6,39 @@
  * Time: 16:04
  */
 
-function cadastrarTipo(){
-    $nm_residuo = filter_input(INPUT_POST, 'nm_residuo');
+function cadastrarRes(){
+    $nm_residuo = filter_input(INPUT_POST, 'nome');
+    $tp_residuo = filter_input(INPUT_POST, 'tipo');
+    $perigo = filter_input(INPUT_POST, 'perigo');
+    $peso = filter_input(INPUT_POST, 'peso');
+    $data = filter_input(INPUT_POST, 'data');
+    $destino = filter_input(INPUT_POST, 'destino');
+    $recicla = filter_input(INPUT_POST, 'reciclavel');
 
-    if(empty($nome) || empty($preco) || empty($qtd)){
+//    $date = implode("-",array_reverse(explode("/",$data)));
+
+    if(empty($nm_residuo)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_controleResiduos.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES(?,?)");
+//        $stmt = $con->prepare("INSERT INTO `esustentavel`.`controle_residuos` (`nm_residuo`, `tp_residuo`, `residuo_perigoso`, `peso_residuo`, `data_pesagem`, `destino_residuo`, `residuo_reciclavel`) VALUES ('Aluminio', '3', 'sim', '250.00', '2018-10-07', 'Reciclagem', 'sim');");
+        $stmt = $con->prepare("INSERT INTO `esustentavel`.`controle_residuos` (`nm_residuo`, `tp_residuo`, `residuo_perigoso`, `peso_residuo`, `data_pesagem`, `destino_residuo`, `residuo_reciclavel`) VALUES (?, ?, ?, ?, ?, ?, ?);");
         $stmt->bindValue(1, $nm_residuo);
+        $stmt->bindValue(2, $tp_residuo);
+        $stmt->bindValue(3, $perigo);
+        $stmt->bindValue(4, $peso);
+        $stmt->bindValue(5, $data);
+        $stmt->bindValue(6, $destino);
+        $stmt->bindValue(7, $recicla);
         if($stmt->execute()){
             $_SESSION['msgSuce'] = "Residuo cadastrado com sucesso";
         }else{
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
         }
 
-        header("Location: ../pag_insercao.php");
+        header("Location: ../pag_controleResiduos.php");
     }
 }
 

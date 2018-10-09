@@ -2,50 +2,53 @@
 /**
  * Created by PhpStorm.
  * User: hiago
- * Date: 06/10/2018
- * Time: 16:45
+ * Date: 22/09/2018
+ * Time: 16:04
  */
 
-function cadastrarEmpresa(){
-    $nm_empresa = filter_input(INPUT_POST, 'inpNome');
-    $tp_residuo = filter_input(INPUT_POST, 'inpTp');
-    $inpSeg = filter_input(INPUT_POST, 'inpSeg');
-    $inpTel = filter_input(INPUT_POST, 'inpTel');
-    $inpEmail = filter_input(INPUT_POST, 'inpEmail');
+function cadastrarAgua(){
+    $nm_empresa = filter_input(INPUT_POST, 'nome');
+    $data = filter_input(INPUT_POST, 'data');
+    $metragem = filter_input(INPUT_POST, 'metragem');
+    $valor = filter_input(INPUT_POST, 'valor');
 
-    if(empty($nm_empresa) || empty($tp_residuo) || empty($inpSeg) || empty($inpTel) || empty($inpEmail)){
+    console_log($nm_empresa);
+
+//    $date = implode("-",array_reverse(explode("/",$data)));
+
+    if(empty($nm_empresa) || empty($data) || empty($metragem) || empty($valor)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_empresa.php");
+        header("Location: ../pag_controleAgua.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `esustentavel`.`cad_empresas` (`nm_empresa`, `tp_residuo_empresa`, `segm_residuo`, `tel_empresa`, `email_empresa`) VALUES (?, ?, ?, ?, ?);");
+        $stmt = $con->prepare("INSERT INTO `esustentavel`.`consumo_agua` (`nm_empresa_agua`, `data_leitura`, `m3_agua`, `vl_agua`) VALUES (?, ?, ?, ?);");
         $stmt->bindValue(1, $nm_empresa);
-        $stmt->bindValue(2, $tp_residuo);
-        $stmt->bindValue(3, $inpSeg);
-        $stmt->bindValue(4, $inpTel);
-        $stmt->bindValue(5, $inpEmail);
+        $stmt->bindValue(2, $data);
+        $stmt->bindValue(3, $metragem);
+        $stmt->bindValue(4, $valor);
+
         if($stmt->execute()){
-            $_SESSION['msgSuce'] = "Empresaa cadastrado com sucesso";
+            $_SESSION['msgSuce'] = "Consumo de Agua cadastrado com sucesso";
         }else{
-            $_SESSION['msgErroCad'] = "Erro ao cadastrar o Empresa";
+            $_SESSION['msgErroCad'] = "Erro ao cadastrar o consumo";
         }
 
-        header("Location: ../pag_empresa.php");
+        header("Location: ../pag_controleAgua.php");
     }
 }
 
-function listarEmpresa(){
+function listarAgua(){
     require 'Connection.php';
     $con = startConnection();
-    $stmt = $con->prepare("SELECT * FROM esustentavel.cad_empresas;");
+    $stmt = $con->prepare("SELECT * FROM esustentavel.consumo_agua");
     $stmt->execute();
 
     while($row = $stmt->fetch()){
-        $empresas[] = $row;
+        $arrayAgua[] = $row;
     }
 
-    return $empresas;
+    return $arrayAgua;
 }
 
 //function excluir(){
