@@ -6,24 +6,24 @@
  * Time: 16:04
  */
 
-function cadastrarAgua(){
+function cadastrarEnergia(){
     $nm_empresa = filter_input(INPUT_POST, 'inpNome');
     $data = filter_input(INPUT_POST, 'inpData');
-    $metragem = filter_input(INPUT_POST, 'inpMetragem');
+    $kwh = filter_input(INPUT_POST, 'inpKwh');
     $valor = filter_input(INPUT_POST, 'inpValor');
 
     $date = implode("-",array_reverse(explode("/",$data)));
 
-    if(empty($nm_empresa) || empty($data) || empty($metragem) || empty($valor)){
+    if(empty($nm_empresa) || empty($data) || empty($kwh) || empty($valor)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_controleAgua.php");
+        header("Location: ../pag_controleEnergia.php");
     }else{
 
         $con = startConnection();
-        $stmt = $con->prepare("INSERT INTO `esustentavel`.`consumo_agua` (`nm_empresa_agua`, `data_leitura`, `m3_agua`, `vl_agua`) VALUES (?, ?, ?, ?);");
+        $stmt = $con->prepare("INSERT INTO `esustentavel`.`consumo_energia` (`nm_empresa_energia`, `data_leitura`, `kw_h`, `vl_energia`) VALUES (?, ?, ?, ?)");
         $stmt->bindValue(1, $nm_empresa);
         $stmt->bindValue(2, $date);
-        $stmt->bindValue(3, $metragem);
+        $stmt->bindValue(3, $kwh);
         $stmt->bindValue(4, $valor);
 
         if($stmt->execute()){
@@ -32,21 +32,21 @@ function cadastrarAgua(){
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o consumo";
         }
 
-        header("Location: ../pag_controleAgua.php");
+        header("Location: ../pag_controleEnergia.php");
     }
 }
 
-function listarAgua(){
+function listarEnergia(){
     require 'Connection.php';
     $con = startConnection();
-    $stmt = $con->prepare("SELECT * FROM esustentavel.consumo_agua");
+    $stmt = $con->prepare("SELECT * FROM esustentavel.consumo_energia");
     $stmt->execute();
 
     while($row = $stmt->fetch()){
-        $arrayAgua[] = $row;
+        $arrayEnergia[] = $row;
     }
 
-    return $arrayAgua;
+    return $arrayEnergia;
 }
 
 //function excluir(){

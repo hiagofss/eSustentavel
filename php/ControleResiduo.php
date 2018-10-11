@@ -7,15 +7,15 @@
  */
 
 function cadastrarRes(){
-    $nm_residuo = filter_input(INPUT_POST, 'nome');
-    $tp_residuo = filter_input(INPUT_POST, 'tipo');
-    $perigo = filter_input(INPUT_POST, 'perigo');
-    $peso = filter_input(INPUT_POST, 'peso');
-    $data = filter_input(INPUT_POST, 'data');
-    $destino = filter_input(INPUT_POST, 'destino');
-    $recicla = filter_input(INPUT_POST, 'reciclavel');
+    $nm_residuo = filter_input(INPUT_POST, 'inpNome');
+    $tp_residuo = filter_input(INPUT_POST, 'inpTipo');
+    $perigo = filter_input(INPUT_POST, 'inpPerigo');
+    $peso = filter_input(INPUT_POST, 'inpPeso');
+    $data = filter_input(INPUT_POST, 'inpData');
+    $destino = filter_input(INPUT_POST, 'inpDestino');
+    $recicla = filter_input(INPUT_POST, 'inpReciclavel');
 
-//    $date = implode("-",array_reverse(explode("/",$data)));
+    $date = implode("-",array_reverse(explode("/",$data)));
 
     if(empty($nm_residuo)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
@@ -29,7 +29,7 @@ function cadastrarRes(){
         $stmt->bindValue(2, $tp_residuo);
         $stmt->bindValue(3, $perigo);
         $stmt->bindValue(4, $peso);
-        $stmt->bindValue(5, $data);
+        $stmt->bindValue(5, $date);
         $stmt->bindValue(6, $destino);
         $stmt->bindValue(7, $recicla);
         if($stmt->execute()){

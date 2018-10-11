@@ -80,17 +80,17 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="data">Data de leitura</label>
-                        <input type="text" class="form-control" name="data" id="data" >
+                        <input type="date" class="form-control" name="inpData" id="data" >
                     </div>
 
                     <div class="form-group">
                         <label for="metragem">M³ de Agua</label>
-                        <input type="text" class="form-control" name="metragem" id="metragem" >
+                        <input type="text" class="form-control" name="inpMetragem" id="metragem" >
                     </div>
 
                     <div class="form-group">
                         <label for="valor">Valor</label>
-                        <input type="number" class="form-control" name="valor" id="valor">
+                        <input type="number" class="form-control" name="inpValor" id="valor">
                     </div>
 
             </div>

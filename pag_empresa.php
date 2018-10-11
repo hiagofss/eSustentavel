@@ -89,18 +89,18 @@ if(!(isset($_SESSION['id_usu']))){
                     </div>
 
                     <div class="form-group">
-                        <label for="preco">Tipo de residuo</label>
-                        <input type="text" class="form-control" name="inpTp" id="tp_residuo" >
+                        <label for="tpResiduo">Tipo de residuo</label>
+                        <input type="text" class="form-control" name="inpTp" id="tpResiduo" >
                     </div>
 
                     <div class="form-group">
-                        <label for="qtd">Segmento de residuo</label>
-                        <input type="text" class="form-control" name="inpSeg" id="seg_residuo">
+                        <label for="segResiduo">Segmento de residuo</label>
+                        <input type="text" class="form-control" name="inpSeg" id="segResiduo">
                     </div>
 
                     <div class="form-group">
-                        <label for="preco">Telefone</label>
-                        <input type="phone" class="form-control" name="inpTel" id="telefone" >
+                        <label for="telefone">Telefone</label>
+                        <input type="phone" class="form-control" pattern="\(\d{2}\)\d{4}-\d{4}" name="inpTel" id="telefone" >
                     </div>
 
                     <div class="form-group">

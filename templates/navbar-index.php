@@ -8,6 +8,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="pag_controleResiduos.php">Controle de Residuos</a></li>
             <li class="active"><a href="pag_controleAgua.php">Controle de Agua</a></li>
+            <li class="active"><a href="pag_controleEnergia.php">Controle de Energia</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

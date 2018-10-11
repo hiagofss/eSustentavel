@@ -9,18 +9,18 @@ if(!(isset($_SESSION['id_usu']))){
 
 <?php require 'templates/navbar-index.php'; ?>
     <div class="container-fluid">
-        <h2>Controle de Residuos</h2>
+        <h2>Controle de Energia</h2>
         <?php require 'templates/msgs.php'; ?>
 
         <table class="table">
 
             <thead>
             <tr>
-                <th>Nome do Residuo</th>
-                <th>Descrição Residuo</th>
-                <th>Peso</th>
-                <th>Data da Pesagem</th>
-                <th>Destino</th>
+                <th>ID</th>
+                <th>Nome da empresa que fornece</th>
+                <th>Data de leitura</th>
+                <th>Kw H</th>
+                <th>Valor</th>
             </tr>
             </thead>
 
@@ -28,25 +28,25 @@ if(!(isset($_SESSION['id_usu']))){
 
 
             <?php
-            require 'php/ControleResiduo.php';
+            require 'php/ControleEnergia.php';
 
-            @$residuos = listar();
+            @$arrayEnergia = listarEnergia();
 
-            foreach($residuos as $values){
+            foreach($arrayEnergia as $values){
                 ?>
                 <tr>
-                    <td><?= $values['nm_residuo']?></td>
-                    <td><?= $values['desc_residuo']?></td>
-                    <td><?= $values['peso_residuo']?></td>
-                    <td><?= $values['data_pesagem']?></td>
-                    <td><?= $values['destino_residuo']?></td>
+                    <td><?= $values['id_energia']?></td>
+                    <td><?= $values['nm_empresa_energia']?></td>
+                    <td><?= $values['data_leitura']?></td>
+                    <td><?= $values['kw_h']?></td>
+                    <td><?= $values['vl_energia']?></td>
                 </tr>
             <?php } ?>
             </tbody>
 
             <tfoot>
             <tr align="center">
-                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Residuos</a></td>
+                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar consumo</a></td>
             </tr>
             </tfoot>
         </table>
@@ -74,51 +74,28 @@ if(!(isset($_SESSION['id_usu']))){
                 <form action="php/Funcoes.php" method="POST">
 
                     <div class="form-group">
-                        <label for="nome">Nome do Residuo</label>
+                        <label for="nome">Nome da empresa</label>
                         <input type="text" class="form-control" name="inpNome" id="nome" >
                     </div>
 
                     <div class="form-group">
-                        <label for="tipo">Tipo do residuo</label>
-                        <input type="text" class="form-control" name="inpTipo" id="tipo" >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="perigo">Residuo perigoso</label>
-                        <select class="form-control" name="inpPerigo" id="perigo">
-                            <option></option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="peso">Peso</label>
-                        <input type="number" class="form-control" name="inpPeso" id="peso">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="data">	Data da Pesagem</label>
+                        <label for="data">Data de leitura</label>
                         <input type="date" class="form-control" name="inpData" id="data" >
                     </div>
 
                     <div class="form-group">
-                        <label for="destino">Destino</label>
-                        <input type="text" class="form-control" name="inpDestino" id="destino">
+                        <label for="kwh">Kw H</label>
+                        <input type="text" class="form-control" name="inpKwh" id="kwh" >
                     </div>
 
                     <div class="form-group">
-                        <label for="reciclavel">Reciclavel</label>
-                        <select class="form-control" name="inpReciclavel" id="reciclavel">
-                            <option></option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
+                        <label for="valor">Valor</label>
+                        <input type="number" class="form-control" name="inpValor" id="valor">
                     </div>
 
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="acao" value="cadastrarRes">
+                <input type="hidden" name="acao" value="cadastrarEnergia">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>

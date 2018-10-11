@@ -7,6 +7,7 @@
 	require 'Segmento.php';
 	require 'ControleResiduo.php';
 	require 'ControleAgua.php';
+	require 'ControleEnergia.php';
 
 	if(isset($_POST['acao'])){
 		if($_POST['acao'] == "login"){
@@ -39,6 +40,10 @@
             cadastrarAgua();
         }
 
+        if ($_POST['acao'] == "cadastrarEnergia"){
+            //Controle de Energia
+            cadastrarEnergia();
+        }
 	}
 
 	if(isset($_GET['acao'])){
