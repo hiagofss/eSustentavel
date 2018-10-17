@@ -1,0 +1,104 @@
+BANCO DE DADOS: pisustentavel
+
+
+ALTER TABLE `controle_residuos`
+ADD FOREIGN KEY (`tp_residuo`) REFERENCES `tp_residuos`(`id_residuo`);
+
+
+INSERT INTO `tp_residuos` (`id_residuo`, `nm_residuo`) VALUES (NULL, 'Organico'), (NULL, 'Hospitalar');
+
+
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`nm_residuo`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp_residuo` AND `tp_residuos`.`nm_residuo` = 'Organico';
+
+
+SELECT SUM(`peso_residuo`)
+FROM `controle_residuos`
+WHERE `tp_residuo` = 1;
+
+SELECT SUM(`peso_residuo`)
+FROM `controle_residuos`
+WHERE `tp_residuo` = 1 AND `data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06';
+
+
+calculo de consumo minimo:
+SELECT * FROM `consumo_agua` WHERE `vl_agua` = (SELECT MIN(`vl_agua`) FROM `consumo_agua`);
+
+calculo de consumo maximo:
+SELECT * FROM `consumo_agua` WHERE `vl_agua` = (SELECT MAX(`vl_agua`) FROM `consumo_agua`);
+
+calculo de consumo Médio:
+SELECT AVG(`vl_agua`) AS 'Média de Consumo' FROM `consumo_agua`;
+
+SELECT AVG(`vl_agua`) AS 'Média de Consumo' FROM `consumo_agua`
+WHERE `data_leitura` BETWEEN '2018-07-01' AND '2018-08-01';
+
+Mostrar variável da quantidade de meses para fazer a média:
+SET @numero = (SELECT COUNT(`data_leitura`) FROM `consumo_agua` WHERE `data_leitura` BETWEEN '2018-07-01' AND '2018-08-01');
+SELECT @numero;
+
+
+SELECT `cad_empresas`.`nm_empresa`, `tp_residuos`.`desc_residuo` FROM `cad_empresas`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `cad_empresas`.`tp_residuo_empresa`;
+
+SELECT `cad_empresas`.`nm_empresa`, `tp_residuos`.`desc_residuo` FROM `cad_empresas`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `cad_empresas`.`tp_residuo_empresa` AND `cad_empresas`.`tp_residuo_empresa` = 5;
+
+SELECT `cad_empresas`.`nm_empresa`, `tp_residuos`.`desc_residuo` FROM `cad_empresas`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `cad_empresas`.`tp_residuo_empresa` AND `cad_empresas`.`segm_residuo` = 2;
+
+
+Filtro por resíduo:
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND `controle_residuos`.`tp_residuo` = 10;
+
+
+Filtro por data:
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND
+`controle_residuos`.`data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06';
+
+Filtro por data e resíduo
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND
+`controle_residuos`.`data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06' AND `controle_residuos`.`tp_residuo` = 10;
+
+
+Filtro resíduo perigoso
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel`
+FROM `controle_residuos` INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` 
+AND `controle_residuos`.`residuo_perigoso` = 'sim';
+
+
+*********************************************************
+
+Insert tabela segm_residuos:
+INSERT INTO `segm_residuos` (`id_segm`, `nm_segm`) VALUES (NULL, 'Lixo radioativo');
+
+
+Insert tabela cad_empresas:
+INSERT INTO `cad_empresas` (`id_empresa`, `nm_empresa`, `tp_residuo_empresa`, `segm_residuo`, `tel_empresa`, `email_empresa`) VALUES (NULL, 'Radiotrash', '8', '4', '88-9999-4444', 'radiotrash_teste@gmail.com');
+
+Insert tabela consumo_agua:
+INSERT INTO `consumo_agua` (`id_agua`, `nm_empresa_agua`, `data_leitura`, `m3_agua`, `vl_agua`) VALUES (NULL, 'DMAE', '2018-10-01', '340.55', '34.05');
+
+Insert tabela consumo_energia:
+INSERT INTO `consumo_energia` (`id_energia`, `nm_empresa_energia`, `data_leitura`, `kw_h`, `vl_energia`) VALUES (NULL, 'DME', '2018-09-01', '45.6', '136.80')
+
+Insert tabela acesso:
+INSERT INTO `acesso` (`id_usu`, `nm_usu`, `login_usu`, `senha_usu`) VALUES (NULL, 'Hiago Filipe Santos de Souza', 'hsouza', '123456');
+
+Insert tabela controle_residuos:
+INSERT INTO `controle_residuos` (`id_controle`, `nm_residuo`, `tp_residuo`, `residuo_perigoso`, `peso_residuo`, `data_pesagem`, `destino_residuo`, `residuo_reciclavel`) VALUES (NULL, 'papel', '3', 'nao', '1.2', '2018-09-15', 'Reciclagem', 'sim');
+
+Insert tabela tp_residuos:
+INSERT INTO `tp_residuos` (`id_residuo`, `desc_residuo`) VALUES (NULL, 'Entulho');
+
+*********************************************************
+
+--
+UNIFEOB
+Análise e Desenvolvimento de Sistemas
+Alunos: Hiago Filipe Santos de Souza – RA: 17000746
+João Paulo Flora Scharinger – RA: 17000414
+
