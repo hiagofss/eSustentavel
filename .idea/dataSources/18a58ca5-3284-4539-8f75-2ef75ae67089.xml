@@ -1129,190 +1129,278 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="285" parent="2" name="acesso"/>
-    <table id="286" parent="2" name="consumo_agua"/>
-    <table id="287" parent="2" name="consumo_energia"/>
-    <table id="288" parent="2" name="controle_residuos"/>
-    <table id="289" parent="2" name="tp_residuos"/>
-    <column id="290" parent="285" name="id_usu">
+    <table id="286" parent="2" name="cad_empresas"/>
+    <table id="287" parent="2" name="consumo_agua"/>
+    <table id="288" parent="2" name="consumo_energia"/>
+    <table id="289" parent="2" name="controle_residuos"/>
+    <table id="290" parent="2" name="segm_residuos"/>
+    <table id="291" parent="2" name="tp_residuos"/>
+    <column id="292" parent="285" name="id_usu">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="285" name="nm_usu">
+    <column id="293" parent="285" name="nm_usu">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="285" name="login_usu">
+    <column id="294" parent="285" name="login_usu">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="285" name="senha_usu">
+    <column id="295" parent="285" name="senha_usu">
       <Position>4</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="294" parent="285" name="PRIMARY">
+    <key id="296" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_usu</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="295" parent="286" name="id_agua">
+    <column id="297" parent="286" name="id_empresa">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="286" name="nm_empresa_agua">
+    <column id="298" parent="286" name="nm_empresa">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="299" parent="286" name="tp_residuo_empresa">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="286" name="segm_residuo">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="301" parent="286" name="tel_empresa">
+      <Position>5</Position>
+      <DataType>varchar(14)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="286" name="email_empresa">
+      <Position>6</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="303" parent="286" name="tp_residuo_empresa">
+      <ColNames>tp_residuo_empresa</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="304" parent="286" name="segm_residuo">
+      <ColNames>segm_residuo</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="305" parent="286" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_empresa</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="306" parent="286" name="cad_empresas_ibfk_1">
+      <ColNames>tp_residuo_empresa</ColNames>
+      <RefSchemaName>esustentavel</RefSchemaName>
+      <RefTableName>tp_residuos</RefTableName>
+      <RefColNames>id_residuo</RefColNames>
+    </foreign-key>
+    <foreign-key id="307" parent="286" name="cad_empresas_ibfk_2">
+      <ColNames>tp_residuo_empresa</ColNames>
+      <RefSchemaName>esustentavel</RefSchemaName>
+      <RefTableName>tp_residuos</RefTableName>
+      <RefColNames>id_residuo</RefColNames>
+    </foreign-key>
+    <foreign-key id="308" parent="286" name="cad_empresas_ibfk_3">
+      <ColNames>segm_residuo</ColNames>
+      <RefSchemaName>esustentavel</RefSchemaName>
+      <RefTableName>segm_residuos</RefTableName>
+      <RefColNames>id_segm</RefColNames>
+    </foreign-key>
+    <column id="309" parent="287" name="id_agua">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="287" name="nm_empresa_agua">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="286" name="data_leitura">
+    <column id="311" parent="287" name="data_leitura">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="286" name="m3_agua">
+    <column id="312" parent="287" name="m3_agua">
       <Position>4</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="286" name="vl_agua">
+    <column id="313" parent="287" name="vl_agua">
       <Position>5</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="300" parent="286" name="PRIMARY">
+    <key id="314" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_agua</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="301" parent="287" name="id_energia">
+    <column id="315" parent="288" name="id_energia">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="287" name="nm_empresa_energia">
+    <column id="316" parent="288" name="nm_empresa_energia">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="287" name="data_leitura">
+    <column id="317" parent="288" name="data_leitura">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="287" name="kw_h">
+    <column id="318" parent="288" name="kw_h">
       <Position>4</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="287" name="vl_energia">
+    <column id="319" parent="288" name="vl_energia">
       <Position>5</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="306" parent="287" name="PRIMARY">
+    <key id="320" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_energia</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="307" parent="288" name="id_controle">
+    <column id="321" parent="289" name="id_controle">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="288" name="nm_residuo">
+    <column id="322" parent="289" name="nm_residuo">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="288" name="tp_residuo">
+    <column id="323" parent="289" name="tp_residuo">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="288" name="peso_residuo">
+    <column id="324" parent="289" name="residuo_perigoso">
       <Position>4</Position>
-      <DataType>decimal(10,2 digit)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="311" parent="288" name="data_pesagem">
-      <Position>5</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="312" parent="288" name="destino_residuo">
-      <Position>6</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="313" parent="288" name="residuo_reciclavel">
-      <Position>7</Position>
       <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="314" parent="288" name="tp_residuo">
+    <column id="325" parent="289" name="peso_residuo">
+      <Position>5</Position>
+      <DataType>decimal(10,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="326" parent="289" name="data_pesagem">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="327" parent="289" name="destino_residuo">
+      <Position>7</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="328" parent="289" name="residuo_reciclavel">
+      <Position>8</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="329" parent="289" name="tp_residuo">
       <ColNames>tp_residuo</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="315" parent="288" name="PRIMARY">
+    <key id="330" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_controle</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="316" parent="288" name="controle_residuos_ibfk_1">
+    <foreign-key id="331" parent="289" name="controle_residuos_ibfk_1">
       <ColNames>tp_residuo</ColNames>
       <RefSchemaName>esustentavel</RefSchemaName>
       <RefTableName>tp_residuos</RefTableName>
       <RefColNames>id_residuo</RefColNames>
     </foreign-key>
-    <column id="317" parent="289" name="id_residuo">
+    <column id="332" parent="290" name="id_segm">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="289" name="desc_residuo">
+    <column id="333" parent="290" name="nm_segm">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="334" parent="290" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_segm</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="335" parent="291" name="id_residuo">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="336" parent="291" name="desc_residuo">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="289" name="residuo_perigoso">
-      <Position>3</Position>
-      <DataType>varchar(5)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="320" parent="289" name="PRIMARY">
+    <key id="337" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_residuo</ColNames>
       <Primary>1</Primary>

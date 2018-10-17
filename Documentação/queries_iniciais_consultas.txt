@@ -1,0 +1,20 @@
+Filtro por resíduo:
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND `controle_residuos`.`tp_residuo` = 10;
+
+
+Filtro por data:
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND
+`controle_residuos`.`data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06';
+
+Filtro por data e resíduo
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel` FROM `controle_residuos`
+INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` AND
+`controle_residuos`.`data_pesagem` BETWEEN '2018-09-05' AND '2018-09-06' AND `controle_residuos`.`tp_residuo` = 10;
+
+
+Filtro resíduo perigoso
+SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`residuo_perigoso`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo`, `controle_residuos`.`residuo_reciclavel`
+FROM `controle_residuos` INNER JOIN `tp_residuos` ON `controle_residuos`.`tp_residuo` = `tp_residuos`.`id_residuo` 
+AND `controle_residuos`.`residuo_perigoso` = 'sim';
