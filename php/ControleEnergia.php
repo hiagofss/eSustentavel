@@ -6,18 +6,19 @@
  * Time: 16:04
  */
 
-function cadastrarEnergia(){
+function cadastrarEnergia()
+{
     $nm_empresa = filter_input(INPUT_POST, 'inpNome');
     $data = filter_input(INPUT_POST, 'inpData');
     $kwh = filter_input(INPUT_POST, 'inpKwh');
     $valor = filter_input(INPUT_POST, 'inpValor');
 
-    $date = implode("-",array_reverse(explode("/",$data)));
+    $date = implode("-", array_reverse(explode("/", $data)));
 
-    if(empty($nm_empresa) || empty($data) || empty($kwh) || empty($valor)){
+    if (empty($nm_empresa) || empty($data) || empty($kwh) || empty($valor)) {
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
         header("Location: ../pag_controleEnergia.php");
-    }else{
+    } else {
 
         $con = startConnection();
         $stmt = $con->prepare("INSERT INTO `esustentavel`.`consumo_energia` (`nm_empresa_energia`, `data_leitura`, `kw_h`, `vl_energia`) VALUES (?, ?, ?, ?)");
@@ -26,9 +27,9 @@ function cadastrarEnergia(){
         $stmt->bindValue(3, $kwh);
         $stmt->bindValue(4, $valor);
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             $_SESSION['msgSuce'] = "Consumo de Agua cadastrado com sucesso";
-        }else{
+        } else {
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o consumo";
         }
 
@@ -36,16 +37,17 @@ function cadastrarEnergia(){
     }
 }
 
-function listarEnergia(){
-    require 'Connection.php';
+function listarEnergia()
+{
+    require_once 'Connection.php';
     $con = startConnection();
     $stmt = $con->prepare("SELECT * FROM esustentavel.consumo_energia");
     $stmt->execute();
 
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $arrayEnergia[] = $row;
     }
-
+    $con == null;
     return $arrayEnergia;
 }
 

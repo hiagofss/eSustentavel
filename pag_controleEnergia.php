@@ -75,22 +75,22 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="nome">Nome da empresa</label>
-                        <input type="text" class="form-control" name="inpNome" id="nome" >
+                        <input type="text" class="form-control" name="inpNome" id="nome" required>
                     </div>
 
                     <div class="form-group">
                         <label for="data">Data de leitura</label>
-                        <input type="date" class="form-control" name="inpData" id="data" >
+                        <input type="date" class="form-control" name="inpData" id="data" required>
                     </div>
 
                     <div class="form-group">
                         <label for="kwh">Kw H</label>
-                        <input type="text" class="form-control" name="inpKwh" id="kwh" >
+                        <input type="text" class="form-control" name="inpKwh" id="kwh" required>
                     </div>
 
                     <div class="form-group">
                         <label for="valor">Valor</label>
-                        <input type="number" class="form-control" name="inpValor" id="valor">
+                        <input type="number" class="form-control" name="inpValor" id="valor" required>
                     </div>
 
             </div>

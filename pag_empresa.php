@@ -47,8 +47,8 @@ if(!(isset($_SESSION['id_usu']))){
             <tr>
                 <td><?= $values['id_empresa']?></td>
                 <td><?= $values['nm_empresa']?></td>
-                <td><?= $values['tp_residuo_empresa']?></td>
-                <td><?= $values['segm_residuo']?></td>
+                <td><?= $values['desc_residuo']?></td>
+                <td><?= $values['nm_segm']?></td>
                 <td><?= $values['tel_empresa']?></td>
                 <td><?= $values['email_empresa']?></td>
             </tr>
@@ -56,7 +56,7 @@ if(!(isset($_SESSION['id_usu']))){
         </tbody>
         <tfoot>
         <tr align="center">
-            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Novo Empresa</a></td>
+            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar nova empresa</a></td>
         </tr>
         </tfoot>
     </table>
@@ -100,7 +100,7 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
-                        <input type="phone" class="form-control" pattern="\(\d{2}\)\d{4}-\d{4}" name="inpTel" id="telefone" >
+                        <input type="phone" class="form-control" name="inpTel" id="telefone" >
                     </div>
 
                     <div class="form-group">

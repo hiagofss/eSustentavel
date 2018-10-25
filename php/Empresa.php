@@ -36,9 +36,11 @@ function cadastrarEmpresa(){
 }
 
 function listarEmpresa(){
-    require 'Connection.php';
+    require_once 'Connection.php';
     $con = startConnection();
-    $stmt = $con->prepare("SELECT * FROM esustentavel.cad_empresas;");
+    $stmt = $con->prepare("SELECT `cad_empresas`.`id_empresa` ,`cad_empresas`.`nm_empresa`, `tp_residuos`.`desc_residuo`, `segm_residuos`.`nm_segm`, `cad_empresas`.`tel_empresa`, `cad_empresas`.`email_empresa` FROM `cad_empresas`
+INNER JOIN `segm_residuos` ON `segm_residuos`.`id_segm` = `cad_empresas`.`segm_residuo`
+INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `cad_empresas`.`tp_residuo_empresa`;");
     $stmt->execute();
 
     while($row = $stmt->fetch()){

@@ -6,18 +6,19 @@
  * Time: 16:04
  */
 
-function cadastrarAgua(){
+function cadastrarAgua()
+{
     $nm_empresa = filter_input(INPUT_POST, 'inpNome');
     $data = filter_input(INPUT_POST, 'inpData');
     $metragem = filter_input(INPUT_POST, 'inpMetragem');
     $valor = filter_input(INPUT_POST, 'inpValor');
 
-    $date = implode("-",array_reverse(explode("/",$data)));
+    $date = implode("-", array_reverse(explode("/", $data)));
 
-    if(empty($nm_empresa) || empty($data) || empty($metragem) || empty($valor)){
+    if (empty($nm_empresa) || empty($data) || empty($metragem) || empty($valor)) {
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
         header("Location: ../pag_controleAgua.php");
-    }else{
+    } else {
 
         $con = startConnection();
         $stmt = $con->prepare("INSERT INTO `esustentavel`.`consumo_agua` (`nm_empresa_agua`, `data_leitura`, `m3_agua`, `vl_agua`) VALUES (?, ?, ?, ?);");
@@ -26,9 +27,9 @@ function cadastrarAgua(){
         $stmt->bindValue(3, $metragem);
         $stmt->bindValue(4, $valor);
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             $_SESSION['msgSuce'] = "Consumo de Agua cadastrado com sucesso";
-        }else{
+        } else {
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o consumo";
         }
 
@@ -36,16 +37,17 @@ function cadastrarAgua(){
     }
 }
 
-function listarAgua(){
-    require 'Connection.php';
+function listarAgua()
+{
+    require_once 'Connection.php';
     $con = startConnection();
     $stmt = $con->prepare("SELECT * FROM esustentavel.consumo_agua");
     $stmt->execute();
 
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $arrayAgua[] = $row;
     }
-
+    $con == null;
     return $arrayAgua;
 }
 

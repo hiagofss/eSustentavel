@@ -43,7 +43,7 @@ function cadastrarRes(){
 }
 
 function listar(){
-    require 'Connection.php';
+    require_once 'Connection.php';
     $con = startConnection();
     $stmt = $con->prepare("SELECT `controle_residuos`.`nm_residuo`, `tp_residuos`.`desc_residuo`, `controle_residuos`.`peso_residuo`, `controle_residuos`.`data_pesagem`, `controle_residuos`.`destino_residuo` FROM `controle_residuos`
 INNER JOIN `tp_residuos` ON `tp_residuos`.`id_residuo` = `controle_residuos`.`tp_residuo`");

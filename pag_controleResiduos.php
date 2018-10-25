@@ -75,17 +75,17 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="nome">Nome do Residuo</label>
-                        <input type="text" class="form-control" name="inpNome" id="nome" >
+                        <input type="text" class="form-control" name="inpNome" id="nome" required>
                     </div>
 
                     <div class="form-group">
                         <label for="tipo">Tipo do residuo</label>
-                        <input type="text" class="form-control" name="inpTipo" id="tipo" >
+                        <input type="text" class="form-control" name="inpTipo" id="tipo" required>
                     </div>
 
                     <div class="form-group">
                         <label for="perigo">Residuo perigoso</label>
-                        <select class="form-control" name="inpPerigo" id="perigo">
+                        <select class="form-control" name="inpPerigo" id="perigo" required>
                             <option></option>
                             <option>Sim</option>
                             <option>Não</option>
@@ -94,22 +94,22 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="peso">Peso</label>
-                        <input type="number" class="form-control" name="inpPeso" id="peso">
+                        <input type="number" class="form-control" name="inpPeso" id="peso" required>
                     </div>
 
                     <div class="form-group">
                         <label for="data">	Data da Pesagem</label>
-                        <input type="date" class="form-control" name="inpData" id="data" >
+                        <input type="date" class="form-control" name="inpData" id="data" required>
                     </div>
 
                     <div class="form-group">
                         <label for="destino">Destino</label>
-                        <input type="text" class="form-control" name="inpDestino" id="destino">
+                        <input type="text" class="form-control" name="inpDestino" id="destino" required>
                     </div>
 
                     <div class="form-group">
                         <label for="reciclavel">Reciclavel</label>
-                        <select class="form-control" name="inpReciclavel" id="reciclavel">
+                        <select class="form-control" name="inpReciclavel" id="reciclavel" required>
                             <option></option>
                             <option>Sim</option>
                             <option>Não</option>

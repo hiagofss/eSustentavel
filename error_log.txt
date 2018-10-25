@@ -1,0 +1,65 @@
+[23-Oct-2018 22:26:09 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:29:15 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:29:19 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:30:46 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:30:49 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:30:51 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:31:01 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:31:53 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:31:56 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:31:57 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:31:58 Brazil/East] PHP Fatal error:  Cannot redeclare startConnection() (previously declared in C:\xampp\htdocs\eSustentavel\php\Connection.php:3) in C:\xampp\htdocs\eSustentavel\php\Connection.php on line 12
+[23-Oct-2018 22:34:16 Brazil/East] PHP Notice:  Undefined variable: con in C:\xampp\htdocs\eSustentavel\php\ControleEnergia.php on line 42
+[23-Oct-2018 22:34:16 Brazil/East] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\eSustentavel\php\ControleEnergia.php:42
+Stack trace:
+#0 C:\xampp\htdocs\eSustentavel\pag_Dashboard.php(82): listarEnergia()
+#1 {main}
+  thrown in C:\xampp\htdocs\eSustentavel\php\ControleEnergia.php on line 42
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:45 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:46:46 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:47:04 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:16 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125

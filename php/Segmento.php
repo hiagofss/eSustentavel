@@ -28,7 +28,7 @@ function cadastrarSegmento(){
 }
 
 function listarSegmento(){
-    require 'Connection.php';
+    require_once 'Connection.php';
     $con = startConnection();
     $stmt = $con->prepare("SELECT * FROM esustentavel.segm_residuos;");
     $stmt->execute();

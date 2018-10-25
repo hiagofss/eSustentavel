@@ -55,7 +55,7 @@ if(!(isset($_SESSION['id_usu']))){
 
             <tfoot>
             <tr align="center">
-                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Novo Residuo</a></td>
+                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar novo Residuo</a></td>
             </tr>
             </tfoot>
         </table>
@@ -84,7 +84,7 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="nome">Nome da empresa</label>
-                        <input type="text" class="form-control" name="inpResiduo" id="nm_residuo" >
+                        <input type="text" class="form-control" name="inpResiduo" id="nm_residuo" required>
                     </div>
 
             </div>

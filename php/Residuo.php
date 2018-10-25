@@ -11,7 +11,7 @@ function cadastrarResiduo(){
 
     if(empty($nm_residuo)){
         $_SESSION['msgErroCad'] = "Nenhum campo pode está vazio";
-        header("Location: ../pag_controleResiduos.php");
+        header("Location: ../pag_residuos.php");
     }else{
 
         $con = startConnection();
@@ -23,12 +23,12 @@ function cadastrarResiduo(){
             $_SESSION['msgErroCad'] = "Erro ao cadastrar o Residuo";
         }
 
-        header("Location: ../pag_controleResiduos.php");
+        header("Location: ../pag_residuos.php");
     }
 }
 
 function listarResiduos(){
-    require 'Connection.php';
+    require_once 'Connection.php';
     $con = startConnection();
     $stmt = $con->prepare("SELECT * FROM esustentavel.tp_residuos;");
     $stmt->execute();

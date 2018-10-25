@@ -49,7 +49,7 @@ if(!(isset($_SESSION['id_usu']))){
         </tbody>
         <tfoot>
         <tr align="center">
-            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar Novo Segmento</a></td>
+            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar novo Segmento</a></td>
         </tr>
         </tfoot>
     </table>
@@ -78,7 +78,7 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="nome">Segmento</label>
-                        <input type="text" class="form-control" name="inpSegmento" id="segmento" >
+                        <input type="text" class="form-control" name="inpSegmento" id="segmento" required>
                     </div>
 
             </div>
