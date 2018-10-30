@@ -21,7 +21,6 @@ if (!(isset($_SESSION['id_usu']))) {
 <?php require 'templates/navbar-index.php'; ?>
 <?php require 'templates/msgs.php'; ?>
     <div class="container-fluid">
-
         <!--        <h2>Dashboard</h2>-->
 
         <!--Load the AJAX API-->
@@ -57,8 +56,8 @@ if (!(isset($_SESSION['id_usu']))) {
                 // Set chart options
                 var options = {
                     'title': 'Gráfico indicativo referente ao valor da conta de água',
-                    'width': 900,
-                    'height': 500,
+                    'width': '100%',
+                    'height': '100%',
                     'colors': ['#3366CC']
                 };
 
@@ -87,8 +86,8 @@ if (!(isset($_SESSION['id_usu']))) {
                 // Set chart options
                 var options = {
                     'title': 'Gráfico indicativo referente ao valor da conta de energia',
-                    'width': 900,
-                    'height': 500,
+                    'width': '100%',
+                    'height': '100%',
                     'colors': ['#DC3912']
                 };
 
@@ -117,8 +116,8 @@ if (!(isset($_SESSION['id_usu']))) {
                 // Set chart options
                 var options = {
                     'title': 'Gráfico indicativo referente a data de pesagem e peso',
-                    'width': 900,
-                    'height': 500,
+                    'width': '100%',
+                    'height': '100%',
                     'colors': ['#109618']
                 };
 
@@ -127,32 +126,19 @@ if (!(isset($_SESSION['id_usu']))) {
                 chart.draw(data, options);
             }
         </script>
+
+        <div class="row">
+            <div style="width: 1800px; height: 440px;" class="col-sm-6" id="chart_div_residuos"></div>
+        </div>
+        <div class="row">
+            <div style="width: 900px; height: 440px;" class="col-sm-6" id="chart_div_agua"></div>
+            <div style="width: 900px; height: 440px;" class="col-sm-6" id="chart_div_energia"></div>
+        </div>
         <!--Div that will hold the pie chart-->
 
         <!--    <div id="chart_div_agua"></div>-->
         <!--    <div id="chart_div_energia"></div>-->
         <!--    <div id="chart_div_residuos"></div>-->
-
-        <div class="table-responsive">
-            <table class="table" style="margin-left: auto; margin-right: auto;">
-                <tbody>
-                <tr>
-                    <td>
-                        <div id="chart_div_agua"></div>
-                    </td>
-                    <td>
-                        <div id="chart_div_energia"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;
-                        <div id="chart_div_residuos"></div>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
 
     </div>
 <?php require 'templates/footer.php' ?>

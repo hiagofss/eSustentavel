@@ -63,3 +63,15 @@ Stack trace:
 [24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
 [24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: data_leitura in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
 [24-Oct-2018 20:54:17 Brazil/East] PHP Notice:  Undefined index: vl_agua in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 125
+[25-Oct-2018 19:58:26 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:26 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:26 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:26 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:31 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:31 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:31 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:31 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:34 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:34 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:34 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83
+[25-Oct-2018 19:58:34 Brazil/East] PHP Notice:  Undefined index: nm_residuo in C:\xampp\htdocs\eSustentavel\pag_Dashboard.php on line 83

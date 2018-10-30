@@ -18,7 +18,7 @@
 
 			<div class="form-group">
 				<input type="hidden" name="acao" value="login">
-				<button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
 			</div>
 		</form>
 	</div>
