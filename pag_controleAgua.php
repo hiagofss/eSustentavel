@@ -2,67 +2,73 @@
 
 <?php
 //Verificando se o usuário está logado
-if(!(isset($_SESSION['id_usu']))){
+if (!(isset($_SESSION['id_usu']))) {
     header("Location: login.php");
 }
 ?>
 
 <?php require 'templates/navbar-index.php'; ?>
-    <div class="container-fluid">
-        <h2>Controle de Residuos</h2>
-        <?php require 'templates/msgs.php'; ?>
+<div class="container-fluid">
+    <h2>Controle de Residuos</h2>
+    <?php require 'templates/msgs.php'; ?>
 
-        <table class="table">
+    <table class="table">
 
-            <thead>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome da empresa que fornece</th>
+            <th>Data de leitura</th>
+            <th>m³ de agua</th>
+            <th>Valor</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+
+        <?php
+        require 'php/ControleAgua.php';
+
+        @$arrayAgua = listarAgua();
+
+        foreach ($arrayAgua as $values) {
+            ?>
             <tr>
-                <th>ID</th>
-                <th>Nome da empresa que fornece</th>
-                <th>Data de leitura</th>
-                <th>m³ de agua</th>
-                <th>Valor</th>
+                <td><?= $values['id_agua'] ?></td>
+                <td><?= $values['nm_empresa_agua'] ?></td>
+                <td><?php $date = $values['data_leitura'];
+                    $data = implode("/", array_reverse(explode("-", $date)));
+                    echo $data;
+                    ?>
+                </td>
+                <td><?= $values['m3_agua'] ?></td>
+                <td><?= $values['vl_agua'] ?></td>
             </tr>
-            </thead>
+        <?php } ?>
+        </tbody>
 
-            <tbody>
-
-
-            <?php
-            require 'php/ControleAgua.php';
-
-            @$arrayAgua = listarAgua();
-
-            foreach($arrayAgua as $values){
-                ?>
-                <tr>
-                    <td><?= $values['id_agua']?></td>
-                    <td><?= $values['nm_empresa_agua']?></td>
-                    <td><?= $values['data_leitura']?></td>
-                    <td><?= $values['m3_agua']?></td>
-                    <td><?= $values['vl_agua']?></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-
-            <tfoot>
-            <tr align="center">
-                <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar consumo</a></td>
-            </tr>
-            </tfoot>
-        </table>
-    </div>
+        <tfoot>
+        <tr align="center">
+            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar consumo</a>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
 
 <!-- Modal de cadastro -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel">Cadastro de Residuos</h4>
             </div>
             <div class="modal-body">
 
-                <?php if(isset($_SESSION['msgErroCad'])){ ?>
+                <?php if (isset($_SESSION['msgErroCad'])) { ?>
 
                     <div class="alert alert-danger" role="alert">
                         <?= $_SESSION['msgErroCad']; ?>

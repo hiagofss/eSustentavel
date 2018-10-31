@@ -1,4 +1,15 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
+error_reporting(E_ALL);
+date_default_timezone_set("Brazil/East");
+
+?>
+
+
+<?php
 /**
  * Created by PhpStorm.
  * User: hiago
@@ -11,7 +22,7 @@
 
 <?php
 //Verificando se o usuário está logado
-if(!(isset($_SESSION['id_usu']))){
+if (!(isset($_SESSION['id_usu']))) {
     header("Location: login.php");
 }
 ?>
@@ -42,21 +53,22 @@ if(!(isset($_SESSION['id_usu']))){
 
         @$empresas = listarEmpresa();
 
-        foreach($empresas as $values){
+        foreach ($empresas as $values) {
             ?>
             <tr>
-                <td><?= $values['id_empresa']?></td>
-                <td><?= $values['nm_empresa']?></td>
-                <td><?= $values['desc_residuo']?></td>
-                <td><?= $values['nm_segm']?></td>
-                <td><?= $values['tel_empresa']?></td>
-                <td><?= $values['email_empresa']?></td>
+                <td><?= $values['id_empresa'] ?></td>
+                <td><?= $values['nm_empresa'] ?></td>
+                <td><?= $values['desc_residuo'] ?></td>
+                <td><?= $values['nm_segm'] ?></td>
+                <td><?= $values['tel_empresa'] ?></td>
+                <td><?= $values['email_empresa'] ?></td>
             </tr>
         <?php } ?>
         </tbody>
         <tfoot>
         <tr align="center">
-            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar nova empresa</a></td>
+            <td colspan="7" align="center"><a href="#" data-toggle="modal" data-target="#myModal">Adicionar nova
+                    empresa</a></td>
         </tr>
         </tfoot>
     </table>
@@ -67,12 +79,13 @@ if(!(isset($_SESSION['id_usu']))){
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel">Cadastro</h4>
             </div>
             <div class="modal-body">
 
-                <?php if(isset($_SESSION['msgErroCad'])){ ?>
+                <?php if (isset($_SESSION['msgErroCad'])) { ?>
 
                     <div class="alert alert-danger" role="alert">
                         <?= $_SESSION['msgErroCad']; ?>
@@ -85,22 +98,48 @@ if(!(isset($_SESSION['id_usu']))){
 
                     <div class="form-group">
                         <label for="nome">Nome da empresa</label>
-                        <input type="text" class="form-control" name="inpNome" id="nome" >
+                        <input type="text" class="form-control" name="inpNome" id="nome">
                     </div>
 
                     <div class="form-group">
                         <label for="tpResiduo">Tipo de residuo</label>
-                        <input type="text" class="form-control" name="inpTp" id="tpResiduo" >
+
+                        <select class="form-control" name="inpTp" id="tpResiduo">
+
+                            <?php
+                            require_once 'php/Residuo.php';
+
+                            @$residuos = listarResiduos();
+
+                            foreach ($residuos as $values) {
+                                ?>
+                                <option value="<?= $values['id_residuo'] ?>"><?= $values['desc_residuo'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="segResiduo">Segmento de residuo</label>
-                        <input type="text" class="form-control" name="inpSeg" id="segResiduo">
+
+                        <select class="form-control" name="inpSeg" id="segResiduo">
+
+                            <?php
+                            require_once 'php/Segmento.php';
+
+                            @$segmento = listarSegmento();
+
+                            foreach ($segmento as $values) {
+                                ?>
+
+                                <option value="<?= $values['id_segm'] ?>"><?= $values['nm_segm'] ?></option>
+
+                            <?php } ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
-                        <input type="phone" class="form-control" name="inpTel" id="telefone" >
+                        <input type="phone" class="form-control" name="inpTel" id="telefone">
                     </div>
 
                     <div class="form-group">
