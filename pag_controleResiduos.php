@@ -120,7 +120,7 @@ if (!(isset($_SESSION['id_usu']))) {
                             <?php } ?>
                         </select>
 
-<!--                        <input type="text" class="form-control" name="inpTipo" id="tipo" required>-->
+                        <!--                        <input type="text" class="form-control" name="inpTipo" id="tipo" required>-->
 
 
                     </div>

@@ -9,7 +9,7 @@ if (!(isset($_SESSION['id_usu']))) {
 
 <?php require 'templates/navbar-index.php'; ?>
 <div class="container-fluid">
-    <h2>Controle de Residuos</h2>
+    <h2>Controle de Água</h2>
     <?php require 'templates/msgs.php'; ?>
 
     <table class="table">
