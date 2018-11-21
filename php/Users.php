@@ -22,7 +22,7 @@ function checkLogin(){
 				$_SESSION['nome'] = $value->nm_usu;
 			}
 
-			header("Location: ../index.php");
+			header("Location: ../pag_Dashboard.php");
 
 		}else{
 			$_SESSION['msgErro'] = "Login ou Senha inválidos";

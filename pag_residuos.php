@@ -83,7 +83,7 @@ if(!(isset($_SESSION['id_usu']))){
                 <form action="php/Funcoes.php" method="POST">
 
                     <div class="form-group">
-                        <label for="nome">Nome da empresa</label>
+                        <label for="nome">Residuo</label>
                         <input type="text" class="form-control" name="inpResiduo" id="nm_residuo" required>
                     </div>
 
